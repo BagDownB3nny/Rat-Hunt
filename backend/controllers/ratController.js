@@ -38,18 +38,22 @@ const createRat = async (req, res) => {
 
 // delete a rat
 const deleteRat = async (req, res) => {
+    console.log("DELETING RAT")
     const {id} = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
+        console.log("no such rat1")
         return res.status(400).json({error: 'No such rat'});
     }
 
     const rat = await Rat.findOneAndDelete({_id: id});
 
     if (!rat) {
+        console.log("no such rat2")
         return res.status(404).json({error: 'No such rat'});
     } 
     res.status(200).json(rat);
+    console.log("DELETED RAT")
 }
 
 // update a rat
