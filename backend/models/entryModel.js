@@ -5,12 +5,15 @@ const Rat = require('./ratModel');
 const Schema = mongoose.Schema;
 
 const entrySchema = new Schema({
-    rat: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Rat',
+    hunter: {
+        type: String,
         required: true
     },
-    time: {
+    rat: {
+        type: String,
+        required: true
+    },
+    currentDate: {
         type: Date,
         required: true
     }
